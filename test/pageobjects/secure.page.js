@@ -8,6 +8,11 @@ class SecurePage extends Page {
     /**
      * define selectors using getter methods
      */
+
+    get errorButton () {
+        return $('.error-button');
+    }
+
     get flashAlert () {
         return $('#item_0_title_link');
     }

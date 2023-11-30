@@ -17,17 +17,24 @@ class LoginPage extends Page {
     }
 
     get btnSubmit () {
-        return $('input[type="submit"]');
+        return $('input[type="submit"]'); 
     }
+
+    get addingToCart () {
+        return $('#add-to-cart-sauce-labs-bike-light'); 
+    }
+
 
     /**
      * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
+     * e.g. to login using username and password 
      */
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+        await this.addingToCart.click();
+        await browser.pause(5000)
     }
 
 async incorrectLogin (incorrectUsername, incorrectPassword) {
@@ -35,6 +42,8 @@ async incorrectLogin (incorrectUsername, incorrectPassword) {
     await this.inputPassword.setValue(incorrectPassword);
     await this.btnSubmit.click();
 }
+
+
 
     /**
      * overwrite specific options to adapt it to page object

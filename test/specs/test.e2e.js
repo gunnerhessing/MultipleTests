@@ -17,13 +17,16 @@ describe('My Login application incorrect', () => {
 
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+    it('should login with valid credentials and add sauce labs bike light to cart', async () => {
         await LoginPage.open()
 
         await LoginPage.login('standard_user', 'secret_sauce')
         await expect(SecurePage.flashAlert).toBeExisting()
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'Sauce Labs Bike Light')
+            it('add the bike light to cart'), async () => {
+        
+                await expect (SecurePage.addToCart).toBeExisting()
+            }
     })
 })
-

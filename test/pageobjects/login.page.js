@@ -36,7 +36,20 @@ class LoginPage extends Page {
         return $('.shopping_cart_link')
     }
 
+    get checkoutBtn () {
+        return $('#checkout')
+    }
 
+    get inputPostalCode () {
+        return $('#postal-code');
+    }
+
+    get firstName () {
+        return $('#first-name');
+    }
+    get lastName () {
+        return $('#last-name');
+    }
 
     /** 
      * a method to encapsule automation code to interact with the page
@@ -47,13 +60,12 @@ class LoginPage extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
         await this.addingLightToCart.click();
-        await browser.pause(3000)
         await this.removingFromCart.click();
-        await browser.pause(3000)
         await this.addingJacketToCart.click();
-        await browser.pause(3000)
         await this.shoppingCart.click();
-        await browser.pause(3000)
+        await browser.pause(1500)
+        await this.checkoutBtn.click();
+        await browser.pause(1500)
     }
 
 async incorrectLogin (incorrectUsername, incorrectPassword) {
@@ -62,6 +74,16 @@ async incorrectLogin (incorrectUsername, incorrectPassword) {
     await this.btnSubmit.click();
 }
 
+async checkoutInfo (checkoutFirstName, checkoutLastName, postalCode) {
+    await this.firstName.setValue(checkoutFirstName);
+    await browser.pause(1500)
+    await this.lastName.setValue(checkoutLastName);
+    await browser.pause(1500)
+    await this.inputPostalCode.setValue(postalCode);
+    await browser.pause(1500)
+    await this.btnSubmit.click();
+    await browser.pause(1500)
+}
 
 
     /**

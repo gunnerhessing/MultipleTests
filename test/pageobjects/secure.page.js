@@ -33,6 +33,9 @@ class SecurePage extends Page {
         return $('.shopping_cart_badge');
     }
    
+    get burgerMenu () {
+        return $('#react-burger-menu-btn');
+    }
 
 }
 

@@ -47,10 +47,21 @@ class LoginPage extends Page {
     get firstName () {
         return $('#first-name');
     }
+
     get lastName () {
         return $('#last-name');
     }
 
+   get finishCheckout () {
+        return $('#finish');
+    }
+
+    get burgerMenu () {
+        return $('#react-burger-menu-btn');
+    }
+    get logoutBtn () {
+        return $('#logout_sidebar_link')
+    }
     /** 
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password 
@@ -76,13 +87,19 @@ async incorrectLogin (incorrectUsername, incorrectPassword) {
 
 async checkoutInfo (checkoutFirstName, checkoutLastName, postalCode) {
     await this.firstName.setValue(checkoutFirstName);
-    await browser.pause(1500)
+    await browser.pause(1000)
     await this.lastName.setValue(checkoutLastName);
-    await browser.pause(1500)
+    await browser.pause(1000)
     await this.inputPostalCode.setValue(postalCode);
-    await browser.pause(1500)
+    await browser.pause(1000)
     await this.btnSubmit.click();
-    await browser.pause(1500)
+    await browser.pause(1000)
+    await this.finishCheckout.click();
+    await browser.pause(1000)
+    await this.burgerMenu.click();
+    await browser.pause(1000)
+    await this.logoutBtn.click();
+    await browser.pause(1000)
 }
 
 

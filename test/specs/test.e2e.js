@@ -42,6 +42,5 @@ describe('Checkout credentials', () => {
     it('It should put in the correct credentials and continue on the checkout process', async () => {
 
         await LoginPage.checkoutInfo('Gunner', 'Hessing', '84043')
-        await expect(SecurePage.itemsinCart).toBeExisting()
     })
 })

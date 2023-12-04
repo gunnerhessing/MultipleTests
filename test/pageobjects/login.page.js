@@ -20,9 +20,22 @@ class LoginPage extends Page {
         return $('input[type="submit"]'); 
     }
 
-    get addingToCart () {
+    get addingLightToCart () {
         return $('#add-to-cart-sauce-labs-bike-light'); 
     }
+
+    get removingFromCart () {
+        return $('#remove-sauce-labs-bike-light')
+    }
+
+    get addingJacketToCart () {
+        return $('#add-to-cart-sauce-labs-fleece-jacket')
+    }
+
+    get shoppingCart () {
+        return $('.shopping_cart_link')
+    }
+
 
 
     /** 
@@ -33,8 +46,14 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await this.addingToCart.click();
-        await browser.pause(5000)
+        await this.addingLightToCart.click();
+        await browser.pause(3000)
+        await this.removingFromCart.click();
+        await browser.pause(3000)
+        await this.addingJacketToCart.click();
+        await browser.pause(3000)
+        await this.shoppingCart.click();
+        await browser.pause(3000)
     }
 
 async incorrectLogin (incorrectUsername, incorrectPassword) {

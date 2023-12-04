@@ -21,12 +21,19 @@ describe('My Login application', () => {
         await LoginPage.open()
 
         await LoginPage.login('standard_user', 'secret_sauce')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'Sauce Labs Bike Light')
+        await expect(SecurePage.itemsinCart).toBeExisting()
+    
             it('add the bike light to cart'), async () => {
         
-                await expect (SecurePage.addToCart).toBeExisting()
+                await expect (SecurePage.addLightToCart).toBeExisting()
             }
+    })
+})
+
+describe('Pressing cart button in top right', () => {
+    it('Item in the cart', async () => {
+
+        await expect(SecurePage.itemsinCart).toBeExisting()
+       
     })
 })
